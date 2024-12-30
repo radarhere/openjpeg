@@ -10130,7 +10130,7 @@ OPJ_BOOL opj_j2k_decode_tile(opj_j2k_t * p_j2k,
         return OPJ_FALSE;
     }
 
-    if (p_j2k->m_cp.strict && p_stream->m_user_data_length &&
+    if (p_j2k->m_specific_param.m_decoder.m_state != J2K_STATE_EOC && p_j2k->m_cp.strict && p_stream->m_user_data_length &&
             opj_stream_get_number_byte_left(p_stream) < 2) {
         opj_event_msg(p_manager, EVT_ERROR, "Stream too short\n");
         return OPJ_FALSE;
